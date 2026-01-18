@@ -1,0 +1,5 @@
+{
+  "name": "Skrew Elite",
+  "description": "A next-generation scorekeeper for the Skrew card game featuring a futuristic glassmorphic UI, real-time leaderboards, and persistent game state.",
+  "requestFramePermissions": []
+}
