@@ -68,7 +68,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
                         animate={{ scale: 1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={onAddRound}
-                        className="fixed bottom-32 left-[48%] transform -translate-x-1/2 w-16 h-16 bg-gradient-to-r from-[#FF9F1C] to-[#FF4D8D] rounded-full flex items-center justify-center shadow-2xl shadow-[#FF9F1C]/40 z-30"
+                        className="fixed bottom-32 left-[46%] transform -translate-x-1/2 w-16 h-16 bg-gradient-to-r from-[#FF9F1C] to-[#FF4D8D] rounded-full flex items-center justify-center shadow-2xl shadow-[#FF9F1C]/40 z-30"
                         aria-label="Add new round"
                     >
                         <Plus size={32} className="text-white" />
