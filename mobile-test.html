@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Test - OPPO Reno 14</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1B1F3B;
+            color: white;
+        }
+
+        .device-frame {
+            width: 414px;
+            height: 896px;
+            margin: 20px auto;
+            border: 16px solid #333;
+            border-radius: 40px;
+            position: relative;
+            background: #000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: url('http://localhost:3001') no-repeat center center;
+            background-size: cover;
+            border-radius: 24px;
+        }
+
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 30px;
+            background: #000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 10;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .specs {
+            text-align: center;
+            margin: 20px;
+            color: #aaa;
+        }
+
+        .specs h2 {
+            color: #FF9F1C;
+            margin-bottom: 10px;
+        }
+
+        .specs ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .specs li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="specs">
+        <h2>OPPO Reno 14 Mobile Test</h2>
+        <ul>
+            <li>📱 Screen: 6.59" AMOLED</li>
+            <li>📏 Resolution: 1256 × 2760 pixels</li>
+            <li>📊 Aspect Ratio: ~19.5:9</li>
+            <li>🎯 Pixel Density: ~460 ppi</li>
+        </ul>
+    </div>
+
+    <div class="device-frame">
+        <div class="notch"></div>
+        <iframe class="screen" src="http://localhost:3001" frameborder="0"></iframe>
+        <div class="controls">
+            Skrew Elite - Mobile Optimized
+        </div>
+    </div>
+
+    <div class="specs">
+        <p>✅ Touch targets optimized for mobile (48px minimum)</p>
+        <p>✅ Bottom navigation with floating action button</p>
+        <p>✅ Vertical single-column layout</p>
+        <p>✅ Responsive typography and spacing</p>
+        <p>✅ Hardware-accelerated animations</p>
+    </div>
+</body>
+
+</html>

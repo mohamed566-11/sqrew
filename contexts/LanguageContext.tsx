@@ -69,10 +69,13 @@ const translations = {
     },
     ar: {
         // Setup Screen
-        'setup.title': 'سكرو إيليت',
+        'setup.title': 'Skrew Elite',
         'setup.subtitle': 'تهيئة المهمة',
         'setup.placeholder': 'أدخل اسم اللاعب...',
         'setup.addPlayer': 'إضافة لاعب',
+        'setup.playersCount': '{count} من {max} لاعب',
+        'setup.playersHeader': 'اللاعبون ({count})',
+        'setup.addPlayersHint': 'أضف لاعبين لبدء اللعبة',
         'setup.noPlayers': 'لم تتم إضافة لاعبين بعد',
         'setup.startGame': 'بدء اللعبة',
 
@@ -104,6 +107,25 @@ const translations = {
         'settings.resetGame': 'إعادة اللعبة',
         'settings.clearData': 'مسح كل البيانات',
 
+        // Modal Titles
+        'modal.deletePlayer': 'حذف لاعب',
+        'modal.selectPlayerToRemove': 'اختر لاعبًا للحذف',
+        'modal.noPlayersToDelete': 'لا يوجد لاعبون للحذف',
+        'modal.playerScore': 'النقاط: {score}',
+
+        // Round Input Modal
+        'modal.roundInputTitle': 'الجولة {round}',
+        'modal.enterScores': 'أدخل نقاط جميع اللاعبين',
+        'modal.submitRound': 'إرسال الجولة',
+        'modal.scorePlaceholder': '0',
+
+        // Settings Menu Descriptions
+        'settings.resetScoresDesc': 'إعادة تعيين جميع نقاط اللاعبين إلى الصفر',
+        'settings.deletePlayerDesc': 'إزالة لاعب من اللعبة',
+        'settings.deleteRoundDesc': 'إزالة جولة محددة',
+        'settings.resetGameDesc': 'العودة إلى إعداد اللاعبين',
+        'settings.clearDataDesc': 'حذف جميع بيانات اللعبة بشكل دائم',
+
         // Notifications
         'notify.playerAdded': 'تمت إضافة اللاعب',
         'notify.playerRemoved': 'تم حذف اللاعب',
@@ -133,19 +155,17 @@ export const useLanguage = () => {
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [language, setLanguage] = useState<Language>('en');
+    const [language, setLanguage] = useState<Language>('ar'); // Default to Arabic
 
     useEffect(() => {
-        const savedLang = localStorage.getItem('skrew_language') as Language;
-        if (savedLang === 'en' || savedLang === 'ar') {
-            setLanguage(savedLang);
-        }
+        // Force Arabic language
+        setLanguage('ar');
+        localStorage.setItem('skrew_language', 'ar');
     }, []);
 
+    // Remove toggle functionality - app is Arabic only
     const toggleLanguage = () => {
-        const newLang = language === 'en' ? 'ar' : 'en';
-        setLanguage(newLang);
-        localStorage.setItem('skrew_language', newLang);
+        // Do nothing - language is fixed to Arabic
     };
 
     const t = (key: string): string => {

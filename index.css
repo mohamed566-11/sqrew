@@ -1,0 +1,222 @@
+/* Mobile-First Styles for OPPO Reno 14 */
+/* Screen: 6.59" AMOLED (~1256 x 2760 pixels) */
+
+/* Safe Area Utilities */
+.safe-pt {
+    padding-top: env(safe-area-inset-top);
+}
+
+.safe-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-pl {
+    padding-left: env(safe-area-inset-left);
+}
+
+.safe-pr {
+    padding-right: env(safe-area-inset-right);
+}
+
+/* Touch Target Optimization */
+.touch-target {
+    min-height: 48px;
+    min-width: 48px;
+}
+
+.touch-target-large {
+    min-height: 56px;
+    min-width: 56px;
+}
+
+/* Typography for Mobile */
+.text-mobile-title {
+    font-size: 1.875rem;
+    /* 30px */
+    line-height: 1.2;
+}
+
+.text-mobile-subtitle {
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.3;
+}
+
+.text-mobile-body {
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.4;
+}
+
+/* Button Styles */
+.btn-mobile {
+    height: 56px;
+    min-height: 56px;
+    padding: 0 24px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.btn-mobile-large {
+    height: 64px;
+    min-height: 64px;
+    padding: 0 32px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Card Styles */
+.card-mobile {
+    border-radius: 24px;
+    padding: 24px;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+.card-mobile-elevated {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Input Styles */
+.input-mobile {
+    height: 56px;
+    padding: 0 16px;
+    border-radius: 16px;
+    font-size: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.input-mobile:focus {
+    outline: none;
+    border-color: #4DFFF3;
+    box-shadow: 0 0 0 4px rgba(77, 255, 243, 0.2);
+}
+
+/* Navigation Styles */
+.nav-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 50;
+}
+
+/* Animation Utilities */
+.animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* High DPI Display Optimization */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* OPPO Reno 14 Specific Media Query */
+@media (min-width: 412px) and (max-width: 415px) and (min-height: 890px) and (max-height: 915px) {
+
+    /* Perfect for OPPO Reno 14 dimensions */
+    .mobile-optimize {
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .player-card {
+        min-height: 140px;
+    }
+}
+
+/* Prevent text selection on mobile */
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Scrollbar styling for mobile */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Hardware acceleration for smooth animations */
+.transform-gpu {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Tap highlight removal */
+* {
+    -webkit-tap-highlight-color: transparent;
+}

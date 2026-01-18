@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { X, UserMinus, AlertTriangle } from 'lucide-react';
 import { Player } from '../types';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './Button';
 
 interface DeletePlayerModalProps {
@@ -11,6 +12,8 @@ interface DeletePlayerModalProps {
 }
 
 export const DeletePlayerModal: React.FC<DeletePlayerModalProps> = ({ players, onClose, onDelete }) => {
+    const { t } = useLanguage();
+
     const handleDelete = (playerId: string) => {
         onDelete(playerId);
         onClose();
@@ -38,8 +41,8 @@ export const DeletePlayerModal: React.FC<DeletePlayerModalProps> = ({ players, o
                             <AlertTriangle size={24} />
                         </div>
                         <div>
-                            <h2 className="text-xl font-bold text-white">Delete Player</h2>
-                            <p className="text-sm text-gray-400">Select player to remove</p>
+                            <h2 className="text-xl font-bold text-white">{t('modal.deletePlayer')}</h2>
+                            <p className="text-sm text-gray-400">{t('modal.selectPlayerToRemove')}</p>
                         </div>
                     </div>
                     <button
@@ -64,7 +67,7 @@ export const DeletePlayerModal: React.FC<DeletePlayerModalProps> = ({ players, o
                                 </div>
                                 <div className="flex-1">
                                     <div className="font-medium text-white">{player.name}</div>
-                                    <div className="text-sm text-gray-400">Score: {player.totalScore}</div>
+                                    <div className="text-sm text-gray-400">{t('modal.playerScore').replace('{score}', player.totalScore.toString())}</div>
                                 </div>
                                 <UserMinus size={20} className="text-red-400" />
                             </button>
@@ -73,7 +76,7 @@ export const DeletePlayerModal: React.FC<DeletePlayerModalProps> = ({ players, o
 
                     {players.length === 0 && (
                         <div className="text-center py-8 text-gray-500">
-                            No players to delete
+                            {t('modal.noPlayersToDelete')}
                         </div>
                     )}
                 </div>

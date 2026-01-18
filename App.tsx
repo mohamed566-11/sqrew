@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGameEngine } from './hooks/useGameEngine';
 import { SetupScreen } from './components/SetupScreen';
-import { Scoreboard } from './components/Scoreboard';
+import { MobileScoreboard } from './components/MobileScoreboard';
 import { GameStatus } from './types';
 import { NotificationProvider } from './components/NotificationProvider';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -21,7 +21,7 @@ function App() {
               onStartGame={game.startGame}
             />
           ) : (
-            <Scoreboard {...game} />
+            <MobileScoreboard {...game} />
           )}
         </div>
       </NotificationProvider>

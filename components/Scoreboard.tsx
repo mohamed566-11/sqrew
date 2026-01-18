@@ -9,6 +9,8 @@ import { DeletePlayerModal } from './DeletePlayerModal';
 import { DeleteRoundModal } from './DeleteRoundModal';
 import { useNotifications } from './NotificationProvider';
 import { useLanguage } from '../contexts/LanguageContext';
+import { MobileNavigation } from './MobileNavigation';
+import { MOBILE_CONSTANTS } from '../mobileConstants';
 
 type Props = GameState & GameActions;
 
@@ -148,18 +150,10 @@ export const Scoreboard: React.FC<Props> = ({
             <Button
               variant="secondary"
               size="sm"
-              onClick={toggleLanguage}
-              icon={<Languages size={14} />}
-            >
-              {language === 'en' ? 'عربي' : 'ENG'}
-            </Button>
-            <Button
-              variant="secondary"
-              size="sm"
               onClick={handleDirectSetup}
               icon={<RotateCcw size={14} />}
             >
-              Setup
+              إعداد
             </Button>
             <Button
               variant="secondary"
@@ -167,7 +161,7 @@ export const Scoreboard: React.FC<Props> = ({
               onClick={() => setShowSettings(!showSettings)}
               icon={<Settings size={14} />}
             >
-              Options
+              خيارات
             </Button>
           </div>
         </header>

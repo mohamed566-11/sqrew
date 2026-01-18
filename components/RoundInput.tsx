@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { X, Check, Calculator } from 'lucide-react';
 import { Player } from '../types';
 import { Button } from './Button';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface RoundInputProps {
   players: Player[];
@@ -12,6 +13,7 @@ interface RoundInputProps {
 }
 
 export const RoundInput: React.FC<RoundInputProps> = ({ players, onClose, onSubmit, roundNumber }) => {
+  const { t } = useLanguage();
   const [scores, setScores] = useState<Record<string, string>>({});
   const firstInputRef = useRef<HTMLInputElement>(null);
 
@@ -89,8 +91,8 @@ export const RoundInput: React.FC<RoundInputProps> = ({ players, onClose, onSubm
               />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-white">Round {roundNumber}</h2>
-              <p className="text-sm text-gray-400">Enter scores for all players</p>
+              <h2 className="text-xl font-bold text-white">{t('modal.roundInputTitle').replace('{round}', roundNumber.toString())}</h2>
+              <p className="text-sm text-gray-400">{t('modal.enterScores')}</p>
             </div>
           </div>
           <button
@@ -119,7 +121,7 @@ export const RoundInput: React.FC<RoundInputProps> = ({ players, onClose, onSubm
                   value={scores[player.id] || ''}
                   onChange={(e) => handleScoreChange(player.id, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  placeholder="0"
+                  placeholder={t('modal.scorePlaceholder')}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-lg placeholder-gray-600 focus:outline-none focus:border-[#4DFFF3] focus:ring-1 focus:ring-[#4DFFF3] transition-all"
                 />
               </div>
@@ -134,7 +136,7 @@ export const RoundInput: React.FC<RoundInputProps> = ({ players, onClose, onSubm
             disabled={!isFormValid}
             icon={<Check size={20} />}
           >
-            Submit Round
+            {t('modal.submitRound')}
           </Button>
         </div>
       </motion.div>
